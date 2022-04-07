@@ -1,1 +1,10 @@
-<h1>hello!!!</h1>
+<h1>Scorecards</h1>
+
+<ul>
+    <%@scorecards.each do |s| %>
+        <li>
+            <%= link_to s.course, scorecard_path(s) %>
+        </li>
+    <% end %>
+
+</ul>
