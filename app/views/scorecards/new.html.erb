@@ -1,0 +1,25 @@
+<h1>Create a Scorecard</h1>
+
+<%= form_with model: @scorecard do |f| %>
+    <%= f.label :course %>
+    <%= f.text_field :course %>
+
+    <br>
+    
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+
+    <br>
+
+    <%= f.label :strokes %>
+    <%= f.text_field :strokes %>
+
+    <br>
+
+    <%= f.label :score %>
+    <%= f.text_field :score %>
+
+    <br>
+
+    <%= f.submit %>
+<% end %>
