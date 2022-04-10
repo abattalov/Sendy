@@ -12,6 +12,11 @@ class ScorecardsController < ApplicationController
         @scorecard = Scorecard.new
     end
 
+    def create
+        @scorecard = Scorecard.create(scorecard_params(params_array))
+        redirect_to @scorecard
+    end
+
     def edit
         @scorecard = Scorecard.find_by(id: params[:id])
     end
@@ -35,7 +40,7 @@ class ScorecardsController < ApplicationController
     end
 
     def params_array
-        [:course, :dates, :strokes, :score]
+        [:course, :date, :strokes, :score]
     end
 
 end
