@@ -5,3 +5,9 @@
 <h2>Strokes: <%= @scorecard.strokes %></h2>
 
 <h2>Score: <%= @scorecard.score %></h2>
+
+
+<%= link_to "Edit", edit_scorecard_path(@scorecard) %>
+
+<%= link_to "Delete", @scorecard, method: :delete %> <br>
+<%= link_to "All Scorecards", scorecards_path %>

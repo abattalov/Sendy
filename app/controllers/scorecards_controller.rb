@@ -17,11 +17,15 @@ class ScorecardsController < ApplicationController
     end
 
     def update
-
+        @scorecard = Scorecard.find_by(id: params[:id])
+        @scorecard.update(scorecard_params(params_array))
+        redirect_to @scorecard
     end
 
     def destroy
-
+        @scorecard = Scorecard.find_by(id: params[:id])
+        @scorecard.destroy
+        redirect_to scorecards_path
     end
 
     private
