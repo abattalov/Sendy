@@ -1,11 +1,12 @@
 class ScorecardsController < ApplicationController
 
+    before_action :get_scorecard, only: [:show, :edit, :update, :destroy]
+
     def index
         @scorecards = Scorecard.all
     end
 
     def show
-        @scorecard = Scorecard.find_by(id: params[:id])
     end
 
     def new
@@ -22,11 +23,9 @@ class ScorecardsController < ApplicationController
     end
 
     def edit
-        @scorecard = Scorecard.find_by(id: params[:id])
     end
 
     def update
-        @scorecard = Scorecard.find_by(id: params[:id])
         @scorecard.update(scorecard_params(params_array))
         if @scorecard.save
             redirect_to @scorecard
@@ -37,12 +36,15 @@ class ScorecardsController < ApplicationController
     end
 
     def destroy
-        @scorecard = Scorecard.find_by(id: params[:id])
         @scorecard.destroy
         redirect_to scorecards_path
     end
 
     private
+
+    def get_scorecard
+        @scorecard = Scorecard.find_by(id: params[:id])
+    end
 
     def scorecard_params(array_args)
         params.require(:scorecard).permit(array_args)
