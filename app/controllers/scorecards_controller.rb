@@ -13,8 +13,12 @@ class ScorecardsController < ApplicationController
     end
 
     def create
-        @scorecard = Scorecard.create(scorecard_params(params_array))
-        redirect_to @scorecard
+        @scorecard = Scorecard.new(scorecard_params(params_array))
+        if @scorecard.save
+            redirect_to scorecard_path(@scorecard)
+        else
+            render :new
+        end
     end
 
     def edit
@@ -24,7 +28,12 @@ class ScorecardsController < ApplicationController
     def update
         @scorecard = Scorecard.find_by(id: params[:id])
         @scorecard.update(scorecard_params(params_array))
-        redirect_to @scorecard
+        if @scorecard.save
+            redirect_to @scorecard
+        else
+            render :edit
+        end
+        
     end
 
     def destroy

@@ -1,6 +1,17 @@
 <h1>Create a Scorecard</h1>
 
-<%= form_with model: @scorecard do |f| %>
+<% if !@scorecard.errors.full_messages.empty? %>
+    <div>
+        Errors: 
+            <ul>
+                <% @scorecard.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                <% end %>
+            </ul>
+    </div>
+<% end %>
+
+<%= form_with model: @scorecard, local: true do |f| %>
     <%= f.label :course %>
     <%= f.text_field :course %>
 
