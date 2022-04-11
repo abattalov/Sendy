@@ -1,0 +1,25 @@
+<%= render partial: 'layouts/errors', locals: {instance: @scorecard} %>
+
+<%= form_with model: @scorecard, local: true do |f| %>
+    <%= f.label :course %>
+    <%= f.text_field :course %>
+
+    <br><br>
+    
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+
+    <br><br>
+
+    <%= f.label :strokes %>
+    <%= f.text_field :strokes %>
+
+    <br><br>
+
+    <%= f.label :score %>
+    <%= f.text_field :score %>
+
+    <br><br>
+
+    <%= f.submit %>
+<% end %>
