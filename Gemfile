@@ -45,6 +45,7 @@ group :development do
   gem 'bcrypt'
   gem 'dotenv'
   gem 'faker'
+  gem 'devise'
 end
 
 group :test do
