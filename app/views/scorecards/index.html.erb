@@ -1,12 +1,25 @@
-<h1>Scorecards</h1>
+<h1>Sendy Scorecards!</h1>
+<%= link_to "Add a scorecard", new_scorecard_path %><br><br>
 
-<ul>
-    <%@scorecards.each do |s| %>
-        <li>
-            <%= link_to s.course, scorecard_path(s) %>
-        </li>
-    <% end %>
-
-</ul>
-
-<%= link_to "Create a new Scorecard", new_scorecard_path %>
+<table class="table table-hover table-light">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Date</th>
+      <th scope="col">Course Name</th>
+      <th scope="col">Strokes</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scorecards.each do |card| %>
+        <tr>
+            <th scope="row"><%= card.user.username%></th>
+            <td><%= card.date %></td>
+            <td><%=link_to card.course, scorecard_path(card)%></a></td>
+            <td><%= card.strokes %></td>
+            <td><%= card.score %></td>
+        </tr>
+     <% end %>
+  </tbody>
+</table>

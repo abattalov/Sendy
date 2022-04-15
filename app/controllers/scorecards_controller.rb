@@ -1,6 +1,7 @@
 class ScorecardsController < ApplicationController
 
     before_action :get_scorecard, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, except: [:index, :show]
 
     def index
         @scorecards = Scorecard.all

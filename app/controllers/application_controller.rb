@@ -1,21 +1,21 @@
 class ApplicationController < ActionController::Base
-    helper_method :logged_in?, :current_user, :user_owns_record?
+    # helper_method :logged_in?, :current_user, :user_owns_record?
 
-    private
+    # private
     
-    def redirect_if_not_logged_in
+    # def redirect_if_not_logged_in
 
-    end
+    # end
 
-    def logged_in?
+    # def logged_in?
 
-    end
+    # end
 
-    def current_user
+    # def current_user
 
-    end
+    # end
 
-    def user_owns_record?(record, user)
+    # def user_owns_record?(record, user)
 
-    end
+    # end
 end
