@@ -1,4 +1,10 @@
-<h1><%= @user.username %></h1>
+<h1><%= @user.username %> Scorecards</h1>
 
 <h2>User id: <%= @user.id %></h2>
-
+<ul>
+    <%= @user.scorecards.each do |card| %>
+    <li>
+        <%= card.course %>
+    </li>
+    <% end %>
+</ul>
