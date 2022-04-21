@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_193949) do
+ActiveRecord::Schema.define(version: 2022_04_21_025226) do
 
   create_table "bags", force: :cascade do |t|
     t.string "disc_names"
@@ -23,13 +23,16 @@ ActiveRecord::Schema.define(version: 2022_04_20_193949) do
 
   create_table "discs", force: :cascade do |t|
     t.string "brand"
-    t.string "type"
     t.string "plastic"
-    t.string "stats"
     t.string "weight"
     t.integer "bag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "speed"
+    t.integer "glide"
+    t.integer "turn"
+    t.integer "fade"
+    t.string "disc_name"
   end
 
   create_table "scorecards", force: :cascade do |t|
