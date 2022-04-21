@@ -1,0 +1,12 @@
+<h1>Bags</h1>
+
+<p><%= link_to "Add a bag", new_bag_path %></p>
+
+
+    <ul>
+        <% @bags.each do |bag| %>
+            <li>
+                <%= link_to bag.name, bag_path(bag) %>
+            </li>
+        <% end %>
+    </ul>

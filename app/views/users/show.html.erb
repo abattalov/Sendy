@@ -2,9 +2,9 @@
 
 <h2>User id: <%= @user.id %></h2>
 <ul>
-    <%= @user.scorecards.each do |card| %>
+    <% @user.scorecards.each do |card| %>
     <li>
-        <%= card.course %>
+        <%= link_to card.course, scorecard_path(card) %>
     </li>
     <% end %>
 </ul>

@@ -1,0 +1,7 @@
+<%= render 'form' %>
+
+<br>
+
+<%= form_with model: @bag, method: :delete do |f| %>
+  <%= f.submit "Delete Bag" %>
+<% end %>
