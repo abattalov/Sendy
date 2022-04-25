@@ -1,0 +1,7 @@
+<%= render 'form' %>
+
+<br>
+
+<%= form_with model: @disc, method: :delete do |f| %>
+  <%= f.submit "Delete Disc" %>
+<% end %>

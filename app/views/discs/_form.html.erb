@@ -1,0 +1,49 @@
+<%= render partial: 'layouts/errors', locals: {instance: @disc} %>
+
+<%= form_with model: @disc, local: true do |f| %>
+
+    <%= f.label :disc_name %>
+    <%= f.text_field :disc_name %>
+
+    <br><br>
+    
+    <%= f.label :brand %>
+    <%= f.text_field :brand %>
+
+    <br><br>
+    
+    <%= f.label :plastic %>
+    <%= f.text_field :plastic %>
+
+    <br><br>
+
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+
+    <br><br>
+
+    <%= f.label :speed %>
+    <%= f.number_field :speed %>
+
+    <br><br>
+
+    <%= f.label :glide %>
+    <%= f.number_field :glide %>
+
+    <br><br>
+
+    <%= f.label :turn %>
+    <%= f.number_field :turn %>
+
+    <br><br>
+
+    <%= f.label :fade %>
+    <%= f.number_field :fade %>
+
+    <br><br>
+  
+    <%= f.number_field :bag_id, id: :disc_bag_id, value: bag.id, type: :hidden %>
+
+
+    <%= f.submit %>
+<% end %>

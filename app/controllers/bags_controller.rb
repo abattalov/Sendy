@@ -11,11 +11,12 @@ class BagsController < ApplicationController
     end
 
     def show
-        
+
     end
 
     def new
-        @bag = current_user.bags.build()
+        @bag = current_user.bags.build
+        @disc = @bag.discs.build
     end
 
     def create
@@ -63,6 +64,6 @@ class BagsController < ApplicationController
     end
 
     def params_array
-        [:disc_names, :user_id, :disc_id, :name]
+        [:disc_names, :user_id, :disc_id, :name, discs_attributes: [:id, :disc_name, :brand, :plastic, :weight, :speed, :glide, :turn, :fade]]
     end
 end

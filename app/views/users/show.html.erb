@@ -1,10 +1,19 @@
-<h1><%= @user.username %> Scorecards</h1>
+<h1><%= @user.username %></h1>
 
-<h2>User id: <%= @user.id %></h2>
+<h3>Rounds played</h3>
 <ul>
     <% @user.scorecards.each do |card| %>
     <li>
-        <%= link_to card.course, scorecard_path(card) %>
+        <%= link_to card.course, user_scorecard_path(card) %> | <%= card.date %>
     </li>
     <% end %>
 </ul>
+
+<% if @bag %>
+
+    <h3>Bags</h3>
+
+        <% @user.bags.each do |bag| %>
+            <%= link_to bag.name, bag_path(@bag) %>
+        <% end %>
+<% end %>

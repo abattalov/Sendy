@@ -1,3 +1,39 @@
 <h1><%=@bag.name%></h1>
 
-<%= link_to "Edit", edit_bag_path(@bag) %>
+<table class="table table-hover table-light">
+  <thead>
+    <tr>
+      <th scope="col">Disc Name</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Plastic</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Speed</th>
+      <th scope="col">Glide</th>
+      <th scope="col">Turn</th>
+      <th scope="col">Fade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bag.discs.each do |disc| %>
+        <tr>
+            <th scope="row"><%= disc.disc_name%></th>
+            <td><%= disc.brand %></td>
+            <td><%= disc.plastic %></td>
+            <td><%= disc.weight %></td>
+            <td><%= disc.speed %></td>
+            <td><%= disc.glide %></td>
+            <td><%= disc.turn %></td>
+            <td><%= disc.fade %></td>
+        </tr>
+     <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to "Edit", edit_bag_path(@bag), method: :get %>
+<br>
+
+<%= form_with model: @bag, method: :delete do |f| %>
+  <%= f.submit "Delete bag" %>
+<% end %>

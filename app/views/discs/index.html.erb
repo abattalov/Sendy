@@ -1,0 +1,11 @@
+<h2>Discs in <%= @bag.name %></h2>
+
+<ul>
+    <% @discs.each do |disc| %>
+        <li>
+            <%= disc.disc_name %>
+        </li>
+    <% end %>
+
+</ul>
+

@@ -3,6 +3,28 @@
 <%= form_with model: @bag, local: true do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
+    <h3>Select and already existing disc</h3>
+    <%= f.collection_select :disc_id, Disc.all, :id, :disc_name %>
+    <h3>Make a disc</h3>
+    <%= f.fields_for :discs, @bag.discs do |d| %>
+        <%= d.label :disc_name %>
+        <%= d.text_field :disc_name %>
+        <%= d.label :brand %>
+        <%= d.text_field :brand %>
+        <%= d.label :plastic %>
+        <%= d.text_field :plastic %>
+        <%= d.label :weight %>
+        <%= d.text_field :weight %>
+        <%= d.label :speed %>
+        <%= d.number_field :speed %>
+        <%= d.label :glide %>
+        <%= d.number_field :glide %>
+        <%= d.label :turn %>
+        <%= d.number_field :turn %>
+        <%= d.label :fade %>
+        <%= d.number_field :fade %>
+
+    <% end %>
 
     <br><br>
    
