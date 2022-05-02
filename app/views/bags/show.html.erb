@@ -31,8 +31,11 @@
 
 <br>
 
-<%= button_to "Edit", edit_bag_path(@bag), method: :get %>
+<%= button_to "Edit bag", edit_bag_path(@bag), method: :get %> 
 <br>
+<%= button_to "Add a disc", bags_add_path(@bag), method: :get %>
+<br>
+
 
 <%= form_with model: @bag, method: :delete do |f| %>
   <%= f.submit "Delete bag" %>

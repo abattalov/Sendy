@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :bags
   has_many :scorecards
+  has_many :discs, through: :bags
 
   def self.from_omniauth(access_token)
     data = access_token.info

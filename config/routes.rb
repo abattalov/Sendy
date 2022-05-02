@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # get 'home/index'
   root 'home#index'
 
+  get '/bags/:id/add', to: 'bags#add', as: 'bags_add'
+  post '/bags/:id/add', to: 'bags#add_create'
+
   resources :scorecards
   resources :bags
   resources :discs

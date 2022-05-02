@@ -1,36 +1,51 @@
 <%= render partial: 'layouts/errors', locals: {instance: @bag} %>
 
 <%= form_with model: @bag, local: true do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <h3>Select and already existing disc</h3>
-    <%= f.collection_select :disc_id, Disc.all, :id, :disc_name %>
-    <h3>Manually add a disc</h3>
-    <%= f.fields_for :discs, @bag.discs do |d| %>
+
+    <h3>Select the bag you want the disc added to:</h3>
+    <%= f.collection_select :bag_id, Bag.belongs_to_user(current_user.id), :id, :name %>
+    <br><br>
+
+    <%= f.number_field :user_id, id: :bag_user_id, value: current_user.id, type: :hidden %>
+
+    <%= f.fields_for :discs, @bag.discs.build do |d|  %>
+
         <%= d.label :disc_name %>
         <%= d.text_field :disc_name %>
+        <br><br>
+
         <%= d.label :brand %>
         <%= d.text_field :brand %>
+        <br><br>
+
         <%= d.label :plastic %>
         <%= d.text_field :plastic %>
+        <br><br>
+
         <%= d.label :weight %>
         <%= d.text_field :weight %>
+        <br><br>
+
         <%= d.label :speed %>
         <%= d.number_field :speed %>
+        <br><br>
+
         <%= d.label :glide %>
         <%= d.number_field :glide %>
+        <br><br>
+
         <%= d.label :turn %>
         <%= d.number_field :turn %>
+        <br><br>
+
         <%= d.label :fade %>
         <%= d.number_field :fade %>
-        <hr>
+        <br><br>
 
     <% end %>
 
-    <br><br>
-   
-    <%= f.number_field :user_id, id: :bag_user_id, value: current_user.id, type: :hidden %>
+    <%= f.submit "Add Disc" %>
 
-
-    <%= f.submit %>
 <% end %>
+
+

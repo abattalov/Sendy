@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_025226) do
+ActiveRecord::Schema.define(version: 2022_05_01_015739) do
 
   create_table "bags", force: :cascade do |t|
-    t.string "disc_names"
     t.integer "user_id"
     t.integer "disc_id"
     t.datetime "created_at", precision: 6, null: false

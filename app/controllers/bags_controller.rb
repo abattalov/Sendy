@@ -1,6 +1,6 @@
 class BagsController < ApplicationController
     
-    before_action :get_bag, only: [:show, :edit, :update, :destroy]
+    before_action :get_bag, only: [:show, :edit, :update, :destroy, :add]
     before_action :authenticate_user!
     before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -15,8 +15,9 @@ class BagsController < ApplicationController
     end
 
     def new
-        @bag = current_user.bags.build
-        @disc = @bag.discs.build
+        @bag = Bag.new
+        3.times {@bag.discs.build}
+        # @disc = @bag.discs.build
     end
 
     def create
@@ -29,6 +30,20 @@ class BagsController < ApplicationController
     end
 
     def edit
+    end
+
+    def add
+    end
+
+    def add_create
+        @bag = current_user.bags.find(params[:bag_id])
+        @disc = Disc.new(disc_params(disc_params_array))
+        @bag.discs << @disc
+        if @bag.save
+            redirect_to @bag
+        else
+            render :add
+        end
     end
 
     def update
@@ -44,6 +59,11 @@ class BagsController < ApplicationController
     def destroy
         @bag.destroy
         redirect_to bags_path
+    end
+
+    def disc_destroy
+        @bag.disc.destroy
+        redirect_to @bag
     end
 
     
@@ -64,6 +84,14 @@ class BagsController < ApplicationController
     end
 
     def params_array
-        [:disc_names, :user_id, :disc_id, :name, discs_attributes: [:id, :disc_name, :brand, :plastic, :weight, :speed, :glide, :turn, :fade]]
+        [:user_id, :disc_id, :name, discs_attributes: [:id, :disc_name, :brand, :plastic, :weight, :speed, :glide, :turn, :fade, :bag_id]]
+    end
+
+    def disc_params(array_args)
+        params.require(:disc).permit(array_args)
+    end
+
+    def disc_params_array
+        [:brand, :plastic, :weight, :bag_id, :speed, :glide, :turn, :fade, :disc_name]
     end
 end
