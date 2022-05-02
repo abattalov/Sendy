@@ -2,9 +2,8 @@
 
 <%= form_with model: @bag, local: true do |f| %>
 
-    <h3>Select the bag you want the disc added to:</h3>
+    <%# <h3>Select the bag you want the disc added to:</h3>
     <%= f.collection_select :bag_id, Bag.belongs_to_user(current_user.id), :id, :name %>
-    <br><br>
 
     <%= f.number_field :user_id, id: :bag_user_id, value: current_user.id, type: :hidden %>
 

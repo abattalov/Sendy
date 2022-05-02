@@ -3,7 +3,7 @@
 <ul>
     <% @discs.each do |disc| %>
         <li>
-            <%= disc.disc_name %>
+            <%= link_to disc.disc_name, user_bag_disc_path(current_user, @bag, disc) %>
         </li>
     <% end %>
 

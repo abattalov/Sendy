@@ -1,10 +1,13 @@
 <h1><%= @user.username %></h1>
 
 <h3>Rounds played</h3>
+<% if current_user.id == @user.id %>
+    <%= link_to "Add a scorecard", new_user_scorecard_path(current_user, @scorecard) %>
+<% end %>
 <ul>
     <% @user.scorecards.each do |card| %>
     <li>
-        <%= link_to card.course, user_scorecard_path(card) %> | <%= card.date %>
+        <%= link_to card.course, user_scorecard_path(card) %> | <%= card.date.strftime("%b %d, %Y") %>
     </li>
     <% end %>
 </ul>
@@ -12,8 +15,15 @@
 <% if @bag %>
 
     <h3>Bags</h3>
-
+    <% if current_user.id == @user.id %>
+        <%= link_to "Add a bag", new_user_bag_path(current_user, @bag) %>
+    <% end %>
+    <ul>
         <% @user.bags.each do |bag| %>
-            <%= link_to bag.name, user_bag_discs_path(@user, @bag) %>
-        <% end %>
+        <li>
+             <%= link_to bag.name, user_bag_path(@user, bag) %>
+        </li>
+        <% end %>    
+    </ul>
+        
 <% end %>
