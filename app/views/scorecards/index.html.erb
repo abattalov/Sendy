@@ -15,7 +15,7 @@
     <% @scorecards.each do |card| %>
         <tr>
             <th scope="row"><%= card.user.username%></th>
-            <td><%= card.date %></td>
+            <td><%= card.date.strftime("%b %d, %Y") %></td>
             <td><%=link_to card.course, scorecard_path(card)%></a></td>
             <td><%= card.strokes %></td>
             <td><%= card.score %></td>

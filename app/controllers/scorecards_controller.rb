@@ -5,7 +5,7 @@ class ScorecardsController < ApplicationController
     before_action :correct_user, only: [:edit, :update, :destroy]
 
     def index
-        @scorecards = Scorecard.all
+        @scorecards = Scorecard.order_by_date
     end
 
     def show

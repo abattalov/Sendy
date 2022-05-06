@@ -2,7 +2,7 @@
 
 <h3><%= @scorecard.course %></h3>
 
-<h3>Date: <%= @scorecard.date %></h3>
+<h3>Date: <%= @scorecard.date.strftime("%b %d, %Y") %></h3>
 
 <h3>Strokes: <%= @scorecard.strokes %></h3>
 

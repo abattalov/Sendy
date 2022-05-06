@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # get '/users/auth/google_oauth2/callback'
-  
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
-  # get 'home/index'
+
   root 'home#index'
 
   get '/bags/:id/add', to: 'bags#add', as: 'bags_add'

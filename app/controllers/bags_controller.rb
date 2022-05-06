@@ -17,7 +17,6 @@ class BagsController < ApplicationController
     def new
         @bag = Bag.new
         3.times {@bag.discs.build}
-        # @disc = @bag.discs.build
     end
 
     def create
