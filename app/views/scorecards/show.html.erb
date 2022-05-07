@@ -1,6 +1,7 @@
 <h2>Scorecard for: <%= @scorecard.user.username %></h2>
+<br><br>
 
-<h3><%= @scorecard.course %></h3>
+<h2><%= @scorecard.course %></h2>
 
 <h3>Date: <%= @scorecard.date.strftime("%b %d, %Y") %></h3>
 
@@ -12,3 +13,5 @@
 <%= link_to "Edit", edit_scorecard_path(@scorecard) %>
 <br>
 <%= link_to "All Scorecards", scorecards_path %>
+<br>
+<%= link_to "Back", :back %>
