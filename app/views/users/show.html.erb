@@ -7,7 +7,7 @@
 <ul>
     <% @user.scorecards.each do |card| %>
     <li>
-        <%= link_to card.course, user_scorecard_path(card) %> | <%= card.date.strftime("%b %d, %Y") %>
+        <%= link_to card.course, user_scorecard_path(@user, @scorecard) %> | <%= card.date.strftime("%b %d, %Y") %>
     </li>
     <% end %>
 </ul>

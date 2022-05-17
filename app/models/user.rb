@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :scorecards
   has_many :discs, through: :bags
 
+  scope :alpha, -> {order(username: :asc)}
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
