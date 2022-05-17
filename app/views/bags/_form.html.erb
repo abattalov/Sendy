@@ -3,9 +3,9 @@
 <%= form_with model: @bag, local: true do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <h3>Select and already existing disc</h3>
-    <%= f.collection_select :disc_id, Disc.all, :id, :disc_name %>
-    <h3>Manually add a disc</h3>
+    <!-- <h3>Select and already existing disc</h3> -->
+    <!-- <%= f.collection_select :disc_id, Disc.all, :id, :disc_name %> -->
+    <h3>Add a disc</h3>
     <%= f.fields_for :discs, @bag.discs do |d| %>
         <%= d.label :disc_name %>
         <%= d.text_field :disc_name %>

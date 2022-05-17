@@ -11,14 +11,14 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/users">Users</a>
-        </li>
-
-        <li class="nav-item">
           <%= link_to "Scorecards", scorecards_path, class: "nav-link" %>
         </li>
 
         <% if user_signed_in? %>
+
+          <li class="nav-item">
+          <a class="nav-link" href="/users">Users</a>
+          </li>
 
           <li class="nav-item">
             <%= link_to "My Disc Bags", bags_path, class: "nav-link" %>
