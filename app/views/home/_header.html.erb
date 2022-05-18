@@ -28,9 +28,18 @@
             <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
           </li>
 
-          <li class="nav-item">
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary"><%= current_user.username %></button>
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              
+              <li><%= link_to "My Profile", user_path(current_user), class: "nav-link" %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+              
+            </ul>
+          </div>
 
         <% else %>
 
