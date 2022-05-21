@@ -5,27 +5,35 @@
     <%= link_to "Add a scorecard", new_user_scorecard_path(current_user, @scorecard) %>
 <% end %>
 <ul>
-    <% @user.scorecards.each do |card| %>
-    <li>
-        <%= link_to card.course, user_scorecard_path(@user, @scorecard) %> | <%= card.date.strftime("%b %d, %Y") %>
-    </li>
+    <% if !@user.scorecards.blank? %>
+        <% @user.scorecards.each do |card| %>
+        <li>
+            <%= link_to card.course, user_scorecard_path(@user, @scorecard) %> | <%= card.date.strftime("%b %d, %Y") %>
+        </li>
+        <% end %>
+    <% else %>
+        <p>No scorecards have been recorded yet.</p>
     <% end %>
 </ul>
 
-<% if @bag %>
 
-    <h3>Bags</h3>
-    <% if current_user.id == @user.id %>
-        <%= link_to "Add a bag", new_user_bag_path(current_user, @bag) %>
-    <% end %>
-    <ul>
+
+<h3>Bags</h3>
+<% if current_user.id == @user.id %>
+    <%= link_to "Add a bag", new_user_bag_path(current_user, @bag) %>
+<% end %>
+<ul>
+    <% if !@user.bags.blank? %>
         <% @user.bags.each do |bag| %>
         <li>
-             <%= link_to bag.name, user_bag_path(@user, bag) %>
+                <%= link_to bag.name, user_bag_path(@user, bag) %>
         </li>
-        <% end %>    
-    </ul>
-        
-<% end %>
+        <% end %>
+    <% else %>
+        <p>No bags have been made yet.</p>    
+    <% end %>
+</ul>
+
+
 
 <%= link_to "Back", :back %>
